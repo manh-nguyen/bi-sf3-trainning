@@ -14,6 +14,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Class EditController
+ * @package AppBundle\Controller
+ */
 class EditController extends Controller
 {
     /**
