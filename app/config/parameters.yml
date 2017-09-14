@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: localhost
+    database_port: null
+    database_name: president
+    database_user: root
+    database_password: admin
+    mailer_transport: smtp
+    mailer_host: localhost
+    mailer_user: null
+    mailer_password: null
+    secret: 01a3dece43a78cc5c5cb167aa0eee32e716fe9b1

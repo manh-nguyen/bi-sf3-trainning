@@ -1,0 +1,58 @@
+AppBundle\Entity\President:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\PresidentRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        username:
+            type: string
+            length: 255
+            unique: true
+        password:
+            type: string
+            length: 255
+        birthday:
+            type: datetime
+            nullable: true
+        death:
+            type: integer
+            nullable: true
+        tookOffice:
+            type: datetime
+            nullable: true
+            column: took_office
+        leftOffice:
+            type: datetime
+            nullable: true
+            column: left_office
+        party:
+            type: string
+            length: 255
+            nullable: true
+        partyColor:
+            type: string
+            length: 255
+            nullable: true
+            column: party_color
+        vicePresident:
+            type: string
+            length: 255
+            nullable: true
+            column: vice_president
+        term:
+            type: string
+            length: 255
+            nullable: true
+        images:
+            type: string
+            length: 255
+            nullable: true
+    lifecycleCallbacks: {  }

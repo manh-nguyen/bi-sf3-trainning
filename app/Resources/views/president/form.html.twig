@@ -1,0 +1,105 @@
+{% extends "base.html.twig" %}
+{% block javascripts %}
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+
+{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+{% endblock %}
+{% block body %}
+
+{#<div class="container-fluid">#}
+{#{{ form(form) }}#}
+{#</div>#}
+    <div class="container-fluid header">
+            <strong><a href="{{ path('president') }}">Welcome {{ app.user.name }}</a> </strong>
+            <button  onclick="window.location.href='{{ path('logout') }}'" style="float: right" type="submit" name="logout" value="logout">logout</button>
+    </div>
+    <div class="container-fluid">
+
+        <div class="wrap  ">
+            {% for message in app.flashes('notice') %}
+                <div class="flash-notice alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            <h1 class="text-center">Your Profile</h1>
+            {{ form_start(form) }}
+
+
+
+            {{ form_row(form.name,{
+                'attr'  : {
+                    'value' :app.user.name
+
+                }
+            }) }}
+
+
+            {{ form_row(form.images) }}
+            <div class="form-group">
+
+                <div class="col-sm-12 text-center"><img width="150px" height="200px" src="{{ asset('uploads/images/') }}{{ app.user.images }}" alt=""></div>
+            </div>
+            {{ form_row(form.birthday,{'attr'  : {
+                'value' :app.user.birthday|date('Y-m-d'),
+            }})
+            }}
+
+            {{ form_row(form.took_office,{
+                'attr'  : {
+                'value' :app.user.tookOffice|date('Y-m-d'),
+            }})
+            }}
+
+            {{ form_row(form.left_office,{
+                'attr'  : {
+                    'value' :app.user.leftOffice|date('Y-m-d'),
+                }})
+            }}
+            {{ form_row(form.death,{
+                'attr'  : {
+                    'value' :app.user.death
+                },
+                'required':false
+            })
+            }}
+            {{ form_row(form.party,{
+                'data' : app.user.party
+            })
+            }}
+            {{ form_row(form.party_color,{
+            })
+            }}
+
+            {{ form_row(form.vice_president,{
+                'attr'  : {
+                    'value' :app.user.vicePresident
+                },
+                'required':false
+            })
+            }}
+
+            {{ form_row(form.term,{
+                'attr'  : {
+                    'value' :app.user.term
+                },
+                'required':false
+            })
+            }}
+
+            <div class="form-group">
+
+                <div class="col-sm-12 text-center">
+            <button type="submit" class="btn btn-success btn-lg">Update</button>
+            <button type="reset" class="btn btn-success btn-lg">Reset</button>
+                </div>
+               </div>
+                {{ form_end(form) }}
+        </div>
+
+    </div>
+{% endblock %}
