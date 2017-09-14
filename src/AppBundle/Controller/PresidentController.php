@@ -19,6 +19,10 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Class PresidentController
+ * @package AppBundle\Controller
+ */
 class PresidentController extends Controller
 {
 
