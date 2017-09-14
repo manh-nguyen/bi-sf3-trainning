@@ -1,0 +1,85 @@
+    {% extends 'base.html.twig' %}
+
+    {% block body %}
+    <div class="container">
+        <header>
+            <h1>Welcome Form  </h1>
+        </header>
+        <section>
+            <div id="container_demo" >
+
+                <a class="hiddenanchor" id="toregister"></a>
+                <a class="hiddenanchor" id="tologin"></a>
+                <div id="wrapper">
+
+               {{ form_start(form) }}
+                    <img src="{{ asset('uploads/images/') }}{{ app.user.image }}" alt="">
+                   {{ form_row(form.name,{"attr":{
+                   "value": app.user.name
+                   }})
+                   }}
+                    {{ form_row(form.image,{"attr":{
+                        "value": app.user.image
+                    }})
+                    }}
+                    {{ form_row(form.username,{"attr":{
+                        "value": app.user.username
+                    }})
+                    }}
+
+                    {{ form_row(form.birthday,{"attr":{
+                        "value": app.user.birthday|date('Y-m-d')
+                    }})
+                    }}
+
+                    {{ form_row(form.death,{"attr":{
+                        "value": app.user.death|date('Y-m-d')
+                    }})
+                    }}
+
+                    {{ form_row(form.tookoffice,{"attr":{
+                        "value": app.user.tookoffice|date('Y-m-d')
+                    }})
+                    }}
+
+                    {{ form_row(form.leftoffice,{"attr":{
+                        "value": app.user.leftoffice|date('Y-m-d')
+                    }})
+                    }}
+
+                    {{ form_row(form.party,{"attr":{
+                        "value": app.user.party
+                    }})
+                    }}
+
+                    {{ form_row(form.term,{"attr":{
+                        "value": app.user.term
+                    }})
+                    }}
+
+                    {{ form_row(form.vicepresident,{"attr":{
+                        "value": app.user.vicepresident
+                    }})
+                    }}
+
+                    {{ form_row(form.color,{"attr":{
+                        "value": app.user.color
+                    }})
+                    }}
+
+
+
+                    <button type="submit">Update</button>
+
+
+
+
+
+
+                    {{ form_end(form) }}
+                    <button  onclick="window.location.href='{{ path('logout') }}'"  type="submit" name="logout">Log Out</button>
+                </div>
+            </div>
+        </section>
+    </div>
+    {% endblock %}

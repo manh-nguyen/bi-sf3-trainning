@@ -1,0 +1,51 @@
+# To get started with security, check out the documentation:
+# https://symfony.com/doc/current/security.html
+security:
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+    encoders:
+        Symfony\Component\Security\Core\User\User:
+            algorithm: bcrypt
+        AppBundle\Entity\President:
+            algorithm: bcrypt
+    # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+    providers:
+        in_memory:
+            memory:
+                users:
+                  quang:
+                    password: $2y$13$db6N7hzfenbbBk9l5fMi7eBOgScnhj9uBWvcA4qQBY/wTXBnn1Wu6
+                    roles:  "ROLE_ADMIN"
+
+
+        db_provider:
+            entity:
+                class: AppBundle:President
+                property: username
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            provider: db_provider
+            form_login:
+                    login_path: login
+                    check_path: login
+                    default_target_path: president
+            logout:
+                    path:   /logout
+                    target: /login
+            pattern: ^/
+            anonymous: ~
+            # activate different ways to authenticate
+
+            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+            #http_basic: ~
+
+            # https://symfony.com/doc/current/security/form_login_setup.html
+            #form_login: ~
+    access_control:
+        - { path: ^/president, roles: ROLE_USER }
