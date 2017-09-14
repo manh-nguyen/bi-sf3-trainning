@@ -22,6 +22,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class PresidentController
  * @package AppBundle\Controller
+ * @author Bach Nguyen
  */
 class PresidentController extends Controller
 {
