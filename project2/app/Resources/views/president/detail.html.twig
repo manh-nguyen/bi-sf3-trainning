@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h1>Infomation</h1>
+    <table class="table-hover" border="1">
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>President Code</td>
+            <td></td>
+            <td>Birthday</td>
+            <td>Death</td>
+            <td>Took Office</td>
+            <td>Left Office</td>
+            <td>party</td>
+            <td style="width:30px;"></td>
+            <td>term</td>
+            <td>Vice President</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>{{ app.user.id }}</td>
+            <td>{{ app.user.name }}</td>
+            <td>{{ app.user.presidentCode }}</td>
+            <td><img src="{{ asset('images/') }}{{ app.user.image }}"> </td>
+            <td>{{ app.user.birthday|date('F j, Y ') }}</td>
+            <td>{{ app.user.death |date('F j, Y ')}}</td>
+            <td>{{ app.user.tookOffice|date('F j, Y ') }}</td>
+            <td>{{ app.user.leftOffice|date('F j, Y ') }}</td>
+            <td>{{ app.user.party }}</td>
+            <td style="background-color: {{ app.user.partyColor }};"></td>
+            <td>{{ app.user.term }}</td>
+            <td>{{ app.user.vicePresident }}</td>
+            <td><a href="{{ asset('/president/edit')}} ">EDIT</a> </td>
+            <td style="text-align: center"><a href="{{ asset('/logout') }}">Logout</a></td>
+        </tr>
+    </table>
+{% endblock %}
+{% block javascripts %}
+<script>
+    $( document ).ready(function() {
+        alert('hello {{ app.user.name }}');
+    });
+</script>
+{% endblock %}

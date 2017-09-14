@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div id="fullscreen_bg" class="fullscreen_bg"/>
+
+    <div class="container">
+
+        <form class="form-signin" method="post" action="{{ path('login') }}">
+            <h1 class="form-signin-heading text-muted">Sign In</h1>
+            <input type="text"  id="_username" name="_username" class="form-control" placeholder="President_code" required="" autofocus="">
+            <input type="password"  id="_password" name="_password" class="form-control" placeholder="Password" required="">
+            <button class="btn btn-lg btn-primary btn-block" type="submit">
+                Sign In
+            </button>
+            <a href="{{ asset('/president/create') }}" style="color:white;
+                                                                margin: auto;
+                                                                font-size: 16px;
+            ">Haven't an account ?let's register</a>
+        </form>
+
+    </div>
+{% endblock %}

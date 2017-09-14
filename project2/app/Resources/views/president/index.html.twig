@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <br>
+LIST
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>Birthday</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for list in lists %}
+        <tr>
+            <td>{{ list.id }}  </td>
+            <td>{{ list.name }}</td>
+            <td>{{ list.birthday|date('F j, Y ,g:i a') }}</td>
+            <td><a href="/president/edit/{{ list.id }}">EDIT</a></td>
+            <td><a href="/president/delete/{{ list.id }}">DELETE</a></td>
+            <td><a href="/president/detail/{{ list.id }}">DETAIL</a> </td>
+        </tr>
+            {% endfor %}
+    </table>
+{% endblock %}
